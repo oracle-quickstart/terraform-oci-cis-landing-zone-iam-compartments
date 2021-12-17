@@ -6,6 +6,7 @@ user_ocid            = "<ENTER USER OCID>"
 fingerprint          = "<ENTER USER FINGERPRINT>"
 private_key_path     = "<ENTER USER PRIVATE KEY PATH>"
 private_key_password = ""
+home_region_name     = "<ENTER HOME REGION NAME"> # Few examples: us-ashburn-1, us_phoenix-1, sa-saopaulo-1. For a full list, see https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm
 
 compartments = { TOP-CMP : { name : "landing-zone-top-cmp", description : "Landing Zone top compartment", parent_id : "ocid1.compartment.oc1..aaaaaaaaxesrxkmzwuvi2sf54thegmojwexca3sz63wqr6h7xgdz7ivves2a", defined_tags : {}, freeform_tags : {},
                         children : {
