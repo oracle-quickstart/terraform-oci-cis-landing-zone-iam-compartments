@@ -1,12 +1,12 @@
 # Copyright (c) 2021 Oracle and/or its affiliates.
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
 
-tenancy_ocid         = "ocid1.tenancy.oc1..aaaaaaaaa3qmjxr43tjexx75r6gwk6vjw22ermohbw2vbxyhczksgjir7xdq" #ociateam
-user_ocid            = "ocid1.user.oc1..aaaaaaaaslb7yvkirogdahohd7pktwebfbq4cwrltetebpjg5usmlqyfhyvq" #andre local
-fingerprint          = "c1:91:41:6a:65:87:68:02:2e:54:80:db:36:76:54:39" #tenant admin
-private_key_path     = "./private_key.pem"
+tenancy_ocid         = "<ENTER TENANCY OCID>"
+user_ocid            = "<ENTER USER OCID>"
+fingerprint          = "<ENTER USER FINGERPRINT>"
+private_key_path     = "<ENTER USER PRIVATE KEY PATH>"
 private_key_password = ""
-home_region_name     = "us-ashburn-1"
+home_region_name     = "<ENTER HOME REGION NAME"> # Few examples: us-ashburn-1, us_phoenix-1, sa-saopaulo-1. For a full list, see https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm
 
 compartments = { TOP-CMP : { name : "landing-zone-top-cmp", description : "Landing Zone top compartment", parent_id : "ocid1.compartment.oc1..aaaaaaaaxesrxkmzwuvi2sf54thegmojwexca3sz63wqr6h7xgdz7ivves2a", defined_tags : {}, freeform_tags : {},
                         children : {
