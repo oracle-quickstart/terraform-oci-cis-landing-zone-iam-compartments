@@ -24,6 +24,10 @@ variable "home_region_name" {
   type        = string
   description = "The tenancy home region name."
 } */
+variable "tenancy_id" {
+  description = "The OCI tenancy OCID."
+  type = "string"
+}
 variable "extend_landing_zone_to_new_region" {
   description = "Whether Landing Zone is being extended to another region."
   type = bool

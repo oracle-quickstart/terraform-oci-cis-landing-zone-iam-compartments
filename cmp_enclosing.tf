@@ -16,7 +16,7 @@ locals {
   
   enclosing_compartment = (var.enable_core || length(var.divisions) > 0) && var.use_enclosing_compartment && var.existing_enclosing_compartment_id == null && !var.extend_landing_zone_to_new_region ? {
     (local.enclosing_compartment_key) = {
-      parent_id     = var.tenancy_ocid
+      parent_id     = var.tenancy_id
       name          = local.enclosing_compartment_name
       description   = "CIS Landing Zone enclosing compartment."
       enable_delete = var.enable_compartments_delete
