@@ -26,7 +26,7 @@ variable "home_region_name" {
 } */
 variable "tenancy_id" {
   description = "The OCI tenancy OCID."
-  type = "string"
+  type = string
 }
 variable "extend_landing_zone_to_new_region" {
   description = "Whether Landing Zone is being extended to another region."
