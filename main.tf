@@ -76,7 +76,7 @@ resource "oci_identity_compartment" "advanced_level_1" {
                                                    parent_id: v.parent_id, 
                                                    enable_delete: var.enable_compartments_delete, 
                                                    defined_tags: v.defined_tags, 
-                                                   freeform_tags: merge(local.freeform_tags,v.freeform_tags)}}
+                                                   freeform_tags: v.freeform_tags}}
     compartment_id = each.value.parent_id
     name           = each.value.name
     description    = each.value.description
