@@ -143,6 +143,12 @@ variable "compartments" {
             description   = string
             defined_tags  = map(string)
             freeform_tags = map(string)
+            children      = map(object({
+              name          = string
+              description   = string
+              defined_tags  = map(string)
+              freeform_tags = map(string)
+            }))  
           }))
         }))
       }))
