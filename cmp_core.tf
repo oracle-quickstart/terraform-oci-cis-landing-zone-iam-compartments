@@ -3,17 +3,17 @@
 
 ### This Terraform configuration manages Landing Zone core compartments in the tenancy.
 
-locals {
+/* locals {
   
   defined_tags  = null
-  freeform_tags = {"cis-landing-zone" : var.cmp_name_prefix != null ? "${var.cmp_name_prefix}-core" : "core"}
+  freeform_tags = {"cis-landing-zone" : "${var.cmp_name_prefix}-core"}
 
   #-----------------------------------------------------------
   #----- Security compartment
   #-----------------------------------------------------------
   security_compartment_key = "${var.cmp_name_prefix}-security-cmp"
   default_security_compartment_name = "security-cmp"
-  security_compartment_name = var.security_compartment_name != null ? var.security_compartment_name : (var.cmp_name_prefix != null ? "${var.cmp_name_prefix}-${local.default_security_compartment_name}" : local.default_security_compartment_name)
+  security_compartment_name = var.security_compartment_name != null ? var.security_compartment_name : "${var.cmp_name_prefix}-${local.default_security_compartment_name}"
   
   security_compartment = var.enable_security_compartment ? {
     (local.security_compartment_key) = {
@@ -31,7 +31,7 @@ locals {
   #-----------------------------------------------------------  
   network_compartment_key  = "${var.cmp_name_prefix}-network-cmp"
   default_network_compartment_name = "network-cmp"
-  network_compartment_name = var.network_compartment_name != null ? var.network_compartment_name : (var.cmp_name_prefix != null ? "${var.cmp_name_prefix}-${local.default_network_compartment_name}" : local.default_network_compartment_name)
+  network_compartment_name = var.network_compartment_name != null ? var.network_compartment_name : "${var.cmp_name_prefix}-${local.default_network_compartment_name}"
   
   network_compartment = var.enable_network_compartment ? { 
     (local.network_compartment_key) = {
@@ -49,8 +49,8 @@ locals {
   #-----------------------------------------------------------
   appdev_compartment_key   = "${var.cmp_name_prefix}-appdev-cmp"
   default_appdev_compartment_name = "appdev-cmp"
-  appdev_compartment_name = var.appdev_compartment_name != null ? var.appdev_compartment_name : (var.cmp_name_prefix != null ? "${var.cmp_name_prefix}-${local.default_appdev_compartment_name}" : local.default_appdev_compartment_name)
-  
+  appdev_compartment_name = var.appdev_compartment_name != null ? var.appdev_compartment_name : "${var.cmp_name_prefix}-${local.default_appdev_compartment_name}"
+
   appdev_compartment = var.enable_appdev_compartment ? {  
     (local.appdev_compartment_key) = {
       parent_id     = local.enclosing_compartment_id
@@ -67,7 +67,7 @@ locals {
   #-----------------------------------------------------------
   database_compartment_key = "${var.cmp_name_prefix}-database-cmp"
   default_database_compartment_name = "database-cmp"
-  database_compartment_name = var.database_compartment_name != null ? var.database_compartment_name : (var.cmp_name_prefix != null ? "${var.cmp_name_prefix}-${local.default_database_compartment_name}" : local.default_database_compartment_name)
+  database_compartment_name = var.database_compartment_name != null ? var.database_compartment_name : "${var.cmp_name_prefix}-${local.default_database_compartment_name}"
   
   database_compartment = var.enable_database_compartment ? {
     (local.database_compartment_key) = {
@@ -85,7 +85,7 @@ locals {
   #-----------------------------------------------------------
   exainfra_compartment_key = "${var.cmp_name_prefix}-exainfra-cmp"
   default_exainfra_compartment_name = "exainfra-cmp"
-  exainfra_compartment_name = var.exainfra_compartment_name != null ? var.exainfra_compartment_name : (var.cmp_name_prefix != null ? "${var.cmp_name_prefix}-${local.default_exainfra_compartment_name}" : local.default_exainfra_compartment_name)
+  exainfra_compartment_name = var.exainfra_compartment_name != null ? var.exainfra_compartment_name : "${var.cmp_name_prefix}-${local.default_exainfra_compartment_name}"
   
   exainfra_compartment = var.enable_exainfra_compartment ? {
     (local.exainfra_compartment_key) = {
@@ -111,7 +111,7 @@ resource "oci_identity_compartment" "these" {
     defined_tags   = each.value.defined_tags
     freeform_tags  = each.value.freeform_tags
 }
-
+ */
 /* module "lz_top_compartment" {
   count     = !var.extend_landing_zone_to_new_region ? 1 : 0
   source    = "../modules/iam/compartments"

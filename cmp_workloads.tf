@@ -3,10 +3,10 @@
 
 ### This Terraform configuration manages Landing Zone workload compartments in the tenancy.
 
-locals {
+/* locals {
 
   workloads_defined_tags = null
-  workloads_freeform_tags = {"cis-landing-zone" : var.cmp_name_prefix != null ? "${var.cmp_name_prefix}-workloads" : "workloads"}  
+  workloads_freeform_tags = {"cis-landing-zone" : "${var.cmp_name_prefix}-workloads"}  
 
   division_cmps = {
     for d in var.divisions : "DIV-${index(var.divisions,d)}" => {
@@ -196,4 +196,4 @@ resource "oci_identity_compartment" "layers" {
     enable_delete  = each.value.enable_delete
     defined_tags   = each.value.defined_tags
     freeform_tags  = each.value.freeform_tags
-}
+} */

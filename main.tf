@@ -5,23 +5,21 @@
 
 locals {
 
-  advanced_freeform_tags = {"cis-landing-zone" : var.cmp_name_prefix != null ? "${var.cmp_name_prefix}-advanced" : "advanced"}
-
   level_2 = flatten([
-    for k,v in var.advanced_compartments : [
+    for k,v in var.compartments : [
       for k1, v1 in v.children : {
         key  = "${k}.${k1}"
         name = v1.name
         description = v1.description
         parent_id = oci_identity_compartment.advanced_level_1[k].id
         defined_tags = v1.defined_tags
-        freeform_tags = merge(local.advanced_freeform_tags,v1.freeform_tags)
+        freeform_tags = v1.freeform_tags
       }
     ]
   ])
 
   level_3 = flatten([
-    for k,v in var.advanced_compartments : [
+    for k,v in var.compartments : [
       for k1, v1 in v.children : [
         for k2, v2 in v1.children : {
           key  = "${k}.${k1}.${k2}"
@@ -29,14 +27,14 @@ locals {
           description = v2.description
           parent_id = oci_identity_compartment.advanced_level_2["${k}.${k1}"].id
           defined_tags = v2.defined_tags
-          freeform_tags = merge(local.advanced_freeform_tags,v2.freeform_tags)
+          freeform_tags =v2.freeform_tags
         }
       ]
     ]
   ])
 
   level_4 = flatten([
-    for k,v in var.advanced_compartments : [
+    for k,v in var.compartments : [
       for k1, v1 in v.children : [
         for k2, v2 in v1.children : [
           for k3, v3 in v2.children : {
@@ -45,7 +43,7 @@ locals {
             description = v3.description
             parent_id = oci_identity_compartment.advanced_level_3["${k}.${k1}.${k2}"].id
             defined_tags = v3.defined_tags
-            freeform_tags = merge(local.advanced_freeform_tags,v3.freeform_tags)
+            freeform_tags = v3.freeform_tags
           }
         ]  
       ]
@@ -53,7 +51,7 @@ locals {
   ])
 
   level_5 = flatten([
-    for k,v in var.advanced_compartments : [
+    for k,v in var.compartments : [
       for k1, v1 in v.children : [
         for k2, v2 in v1.children : [
           for k3, v3 in v2.children : [
@@ -63,7 +61,7 @@ locals {
               description = v4.description
               parent_id = oci_identity_compartment.advanced_level_4["${k}.${k1}.${k2}.${k3}"].id
               defined_tags = v4.defined_tags
-              freeform_tags = merge(local.advanced_freeform_tags,v4.freeform_tags)
+              freeform_tags = v4.freeform_tags
             }  
           ]
         ]  
@@ -73,12 +71,12 @@ locals {
 }
 
 resource "oci_identity_compartment" "advanced_level_1" {
-  for_each = {for k, v in var.advanced_compartments : k => {name: v.name, 
+  for_each = {for k, v in var.compartments : k => {name: v.name, 
                                                    description: v.description, 
                                                    parent_id: v.parent_id, 
                                                    enable_delete: var.enable_compartments_delete, 
                                                    defined_tags: v.defined_tags, 
-                                                   freeform_tags: merge(local.advanced_freeform_tags,v.freeform_tags)}}
+                                                   freeform_tags: merge(local.freeform_tags,v.freeform_tags)}}
     compartment_id = each.value.parent_id
     name           = each.value.name
     description    = each.value.description
@@ -150,7 +148,7 @@ resource "oci_identity_compartment" "advanced_level_5" {
 /*
 module "lz_level_1_compartments" {
   source = "./modules/iam/compartments"
-  compartments = {for k, v in var.advanced_compartments : k => {name: v.name, 
+  compartments = {for k, v in var.compartments : k => {name: v.name, 
                                                        description: v.description, 
                                                        parent_id: v.parent_id, 
                                                        enable_delete: var.enable_compartments_delete, 

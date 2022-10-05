@@ -10,7 +10,7 @@ home_region_name     = "us-ashburn-1"
 
 cmp_name_prefix = "super"
 
-/* advanced_compartments = { TOP-CMP : { name : "stacks-landing-zone-top-cmp", description : "CIS Landing Zone top compartment", parent_id : "ocid1.compartment.oc1..aaaaaaaaxesrxkmzwuvi2sf54thegmojwexca3sz63wqr6h7xgdz7ivves2a", defined_tags : {}, freeform_tags : {"type":"enc"},
+advanced_compartments = { TOP-CMP : { name : "stacks-landing-zone-top-cmp", description : "CIS Landing Zone top compartment", parent_id : "ocid1.compartment.oc1..aaaaaaaaxesrxkmzwuvi2sf54thegmojwexca3sz63wqr6h7xgdz7ivves2a", defined_tags : {}, freeform_tags : {"type":"enc"},
                         children : {
                             NETWORK-CMP : { name : "shared-network-cmp", description : "CIS Landing Zone Shared network compartment", defined_tags : {}, freeform_tags : {"type":"net"}, 
                                 children : {}
@@ -43,7 +43,7 @@ cmp_name_prefix = "super"
                             } 
                         }
                     }
-} */
+}
 
 use_enclosing_compartment = true
 

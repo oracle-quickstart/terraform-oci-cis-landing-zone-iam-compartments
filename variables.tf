@@ -24,19 +24,18 @@ variable "home_region_name" {
   type        = string
   description = "The tenancy home region name."
 } */
-variable "tenancy_id" {
+/* variable "tenancy_id" {
   description = "The OCI tenancy OCID."
+  type = string
+}
+variable "cmp_name_prefix" {
+  description = "Used as naming prefix to compartments names."
   type = string
 }
 variable "extend_landing_zone_to_new_region" {
   description = "Whether Landing Zone is being extended to another region."
   type = bool
   default = false
-}
-variable "cmp_name_prefix" {
-  description = "Used as naming prefix to compartments names."
-  type = string
-  default = null
 }
 variable "use_enclosing_compartment" {
   description = "Whether an enclosing compartment is used."
@@ -52,12 +51,12 @@ variable "enclosing_compartment_name" {
   description = "CIS Landing Zone enclosing compartment name."
   type = string
   default = null
-}
+} */
 
 #-------------------------------------------------------------
 #-- Quick Start core compartments
 #-------------------------------------------------------------
-variable "enable_core" {
+/* variable "enable_core" {
   description = "Whether core compartments are enabled."
   type = bool
   default = false
@@ -112,11 +111,11 @@ variable "exainfra_compartment_name" {
   type = string
   default = null
 }
-
+ */
 #-------------------------------------------------------------
-#-- Advanced compartments topology
+#-- Arbitrary compartments topology
 #-------------------------------------------------------------
-variable "advanced_compartments" {
+variable "compartments" {
   description = "The compartments, given as a map of objects."
   type = map(object({
     name          = string
@@ -155,8 +154,8 @@ variable "advanced_compartments" {
 #-------------------------------------------------------------
 #-- Workloads compartments
 #-------------------------------------------------------------
-variable "divisions" {
-  description = "The organization divisions, representing departaments, lines of business, etc."
+/* variable "divisions" {
+  description = "The organization divisions, representing departments, lines of business, etc."
   type = list(string)
   default = []
 }
@@ -199,4 +198,4 @@ variable "enable_compartments_delete" {
   description = "Whether compartments are physically deleted upon destroy."
   type = bool
   default = true
-}
+} */

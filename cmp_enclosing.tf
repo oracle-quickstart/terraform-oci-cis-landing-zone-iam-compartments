@@ -3,16 +3,16 @@
 
 ### This Terraform configuration manages Landing Zone enclosing compartment in the tenancy.
 
-locals {
+/* locals {
   #----- Core compartments parent
-  enclosing_compartment_id = var.enable_core || length(var.divisions) > 0 ? (var.use_enclosing_compartment && var.existing_enclosing_compartment_id != null ? var.existing_enclosing_compartment_id : oci_identity_compartment.top[local.enclosing_compartment_key].id) : null
+  enclosing_compartment_id = (var.enable_core || length(var.divisions) > 0) ? (var.use_enclosing_compartment && var.existing_enclosing_compartment_id != null ? var.existing_enclosing_compartment_id : oci_identity_compartment.top[local.enclosing_compartment_key].id) : var.tenancy_id
 
   #-----------------------------------------------------------
   #----- Enclosing compartment
   #-----------------------------------------------------------
   enclosing_compartment_key = "${var.cmp_name_prefix}-top-cmp"
   default_enclosing_compartment_name = "top-cmp"
-  enclosing_compartment_name = var.enclosing_compartment_name != null ? var.enclosing_compartment_name : (var.cmp_name_prefix != null ? "${var.cmp_name_prefix}-${local.default_enclosing_compartment_name}" : local.default_enclosing_compartment_name)
+  enclosing_compartment_name = var.enclosing_compartment_name != null ? var.enclosing_compartment_name : "${var.cmp_name_prefix}-${local.default_enclosing_compartment_name}"
   
   enclosing_compartment = (var.enable_core || length(var.divisions) > 0) && var.use_enclosing_compartment && var.existing_enclosing_compartment_id == null && !var.extend_landing_zone_to_new_region ? {
     (local.enclosing_compartment_key) = {
@@ -35,3 +35,4 @@ resource "oci_identity_compartment" "top" {
     defined_tags   = each.value.defined_tags
     freeform_tags  = each.value.freeform_tags
 }
+ */

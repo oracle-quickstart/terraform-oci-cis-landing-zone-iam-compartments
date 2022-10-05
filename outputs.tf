@@ -26,11 +26,14 @@ output "advanced_level_5_compartments" {
   value       = oci_identity_compartment.advanced_level_5 #module.lz_level_5_compartments.compartments
 }
 
-output "enclosing_compartment" {
-  description = "CIS Landing Zone enclosing compartment."
-  value       = oci_identity_compartment.top #module.lz_level_5_compartments.compartments
+/* output "enclosing_compartment_id" {
+  description = "CIS Landing Zone enclosing compartment ocid."
+  value       = local.enclosing_compartment_id
 }
-
+output "enclosing_compartment_name" {
+  description = "CIS Landing Zone enclosing compartment name."
+  value       = local.enclosing_compartment_name
+}
 output "core_compartments" {
   description = "CIS Landing Zone core compartments."
   value       = oci_identity_compartment.these #module.lz_level_5_compartments.compartments
@@ -54,4 +57,4 @@ output "workloads_applications_compartment" {
 output "workloads_application_layers_compartment" {
   description = "CIS Landing Zone application layers compartments."
   value       = oci_identity_compartment.layers
-}
+} */
