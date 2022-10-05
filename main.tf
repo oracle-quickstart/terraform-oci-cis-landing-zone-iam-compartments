@@ -38,7 +38,7 @@ locals {
           description = v3.description
           parent_id = oci_identity_compartment.advanced_level_2["${k1}.${k2}"].id
           defined_tags = v3.defined_tags
-          freeform_tags =v3.freeform_tags
+          freeform_tags = v3.freeform_tags
         }
       ]
     ]
@@ -103,11 +103,11 @@ locals {
 }
 
 resource "oci_identity_compartment" "level_1" {
-  for_each = {for c in local.level_1 : c.key => {name: v.name, 
-                                                 description: v.description, 
-                                                 parent_id: v.parent_id, 
-                                                 defined_tags: v.defined_tags, 
-                                                 freeform_tags: v.freeform_tags}}
+  for_each = {for c in local.level_1 : c.key => {name: c.name, 
+                                                 description: c.description, 
+                                                 parent_id: c.parent_id, 
+                                                 defined_tags: c.defined_tags, 
+                                                 freeform_tags: cv.freeform_tags}}
     compartment_id = each.value.parent_id
     name           = each.value.name
     description    = each.value.description
