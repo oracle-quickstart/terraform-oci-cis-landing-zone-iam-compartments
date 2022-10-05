@@ -194,8 +194,9 @@ variable "enable_mgmt_layer_for" {
   type = list(string)
   default = []
 }
+*/
 variable "enable_compartments_delete" {
   description = "Whether compartments are physically deleted upon destroy."
   type = bool
   default = true
-} */
+}
