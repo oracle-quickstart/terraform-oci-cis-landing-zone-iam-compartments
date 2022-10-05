@@ -107,7 +107,7 @@ resource "oci_identity_compartment" "level_1" {
                                                  description: c.description, 
                                                  parent_id: c.parent_id, 
                                                  defined_tags: c.defined_tags, 
-                                                 freeform_tags: cv.freeform_tags}}
+                                                 freeform_tags: c.freeform_tags}}
     compartment_id = each.value.parent_id
     name           = each.value.name
     description    = each.value.description
