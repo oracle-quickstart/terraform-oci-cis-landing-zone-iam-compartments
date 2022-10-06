@@ -1,8 +1,6 @@
 # Copyright (c) 2022 Oracle and/or its affiliates.
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
 
-### This Terraform configuration provisions compartments in the tenancy.
-
 locals {
 
   level_1 = [
@@ -185,60 +183,3 @@ resource "oci_identity_compartment" "level_6" {
     defined_tags   = each.value.defined_tags
     freeform_tags  = each.value.freeform_tags
 }
-
-/*
-module "lz_level_1_compartments" {
-  source = "./modules/iam/compartments"
-  compartments = {for k, v in var.compartments : k => {name: v.name, 
-                                                       description: v.description, 
-                                                       parent_id: v.parent_id, 
-                                                       enable_delete: var.enable_compartments_delete, 
-                                                       defined_tags: v.defined_tags, 
-                                                       freeform_tags: v.freeform_tags}
-  }
-}
-
-module "lz_level_2_compartments" {
-  source = "./modules/iam/compartments"
-  compartments = {for c in local.level_2 : c.key => {name: c.name, 
-                                                     description: c.description,
-                                                     parent_id: c.parent_id,
-                                                     enable_delete: var.enable_compartments_delete,
-                                                     defined_tags: c.defined_tags,
-                                                     freeform_tags: c.freeform_tags}
-  }
-}  
-
-module "lz_level_3_compartments" {
-  source = "./modules/iam/compartments"
-  compartments = {for c in local.level_3 : c.key => {name: c.name, 
-                                                     description: c.description,
-                                                     parent_id: c.parent_id,
-                                                     enable_delete: var.enable_compartments_delete,
-                                                     defined_tags: c.defined_tags,
-                                                     freeform_tags: c.freeform_tags}
-  }
-}  
-
-module "lz_level_4_compartments" {
-  source = "./modules/iam/compartments"
-  compartments = {for c in local.level_4 : c.key => {name: c.name, 
-                                                     description: c.description,
-                                                     parent_id: c.parent_id,
-                                                     enable_delete: var.enable_compartments_delete,
-                                                     defined_tags: c.defined_tags,
-                                                     freeform_tags: c.freeform_tags}
-  }
-}
-
-module "lz_level_5_compartments" {
-  source = "./modules/iam/compartments"
-  compartments = {for c in local.level_5 : c.key => {name: c.name, 
-                                                     description: c.description,
-                                                     parent_id: c.parent_id,
-                                                     enable_delete: var.enable_compartments_delete,
-                                                     defined_tags: c.defined_tags,
-                                                     freeform_tags: c.freeform_tags}
-  }
-}
-*/
