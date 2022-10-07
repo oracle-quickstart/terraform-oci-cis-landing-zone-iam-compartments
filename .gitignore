@@ -6,4 +6,4 @@
 **/crash.log
 *.pem
 **/terraform_*.tfvars*
-**/terraform.tfvars*
+**/terraform.tfvars

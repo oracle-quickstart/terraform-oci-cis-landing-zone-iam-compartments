@@ -1,3 +1,3 @@
-# OCI Secure Landing Zone Compartments Stack
+# Oracle Cloud Infrastructure (OCI) Terraform IAM Compartments Module
 
-This Terraform configuration creates arbitrary compartments structures in Oracle Cloud Infrastructure (OCI) based on a single input variable, expressed as a map of objects.
+This module creates arbitrary compartments structures based on single map of objects that can be nested up to 6 levels.
