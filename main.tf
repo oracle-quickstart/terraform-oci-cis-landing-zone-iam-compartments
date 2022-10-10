@@ -20,7 +20,7 @@ locals {
         key  = "${k1}.${k2}"
         name = v2.name
         description = v2.description
-        parent_id = oci_identity_compartment.level_1[k1].id
+        parent_id = oci_identity_compartment.these[k1].id
         defined_tags = v2.defined_tags
         freeform_tags = v2.freeform_tags
       }
