@@ -100,7 +100,7 @@ locals {
   ])
 }
 
-resource "oci_identity_compartment" "level_1" {
+resource "oci_identity_compartment" "these" {
   for_each = {for c in local.level_1 : c.key => {name: c.name, 
                                                  description: c.description, 
                                                  parent_id: c.parent_id, 

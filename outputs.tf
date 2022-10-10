@@ -3,7 +3,7 @@
 
 output "level_1_compartments" {
   description = "The level 1 compartments."
-  value       = oci_identity_compartment.level_1
+  value       = oci_identity_compartment.these
 }
 
 output "level_2_compartments" {
