@@ -3,21 +3,10 @@
 
 locals {
 
-  level_1 = [
-    for k1,v1 in var.compartments : {
-      key  = k1
-      name = v1.name
-      description = v1.description
-      parent_id = v1.parent_id
-      defined_tags = v1.defined_tags
-      freeform_tags = v1.freeform_tags
-    }
-  ]
-
   level_2 = flatten([
-    for k1,v1 in var.compartments : [
+    for k1, v1 in var.compartments : [
       for k2, v2 in v1.children : {
-        key  = "${k1}.${k2}"
+        key  = k2
         name = v2.name
         description = v2.description
         parent_id = oci_identity_compartment.these[k1].id
@@ -28,13 +17,13 @@ locals {
   ])
 
   level_3 = flatten([
-    for k1,v1 in var.compartments : [
+    for v1 in var.compartments : [
       for k2, v2 in v1.children : [
         for k3, v3 in v2.children : {
-          key  = "${k1}.${k2}.${k3}"
+          key  = k3
           name = v3.name
           description = v3.description
-          parent_id = oci_identity_compartment.level_2["${k1}.${k2}"].id
+          parent_id = oci_identity_compartment.level_2[k2].id
           defined_tags = v3.defined_tags
           freeform_tags = v3.freeform_tags
         }
@@ -43,14 +32,14 @@ locals {
   ])
 
   level_4 = flatten([
-    for k1,v1 in var.compartments : [
-      for k2, v2 in v1.children : [
+    for v1 in var.compartments : [
+      for v2 in v1.children : [
         for k3, v3 in v2.children : [
           for k4, v4 in v3.children : {
-            key  = "${k1}.${k2}.${k3}.${k4}"
+            key  = k4
             name = v4.name
             description = v4.description
-            parent_id = oci_identity_compartment.level_3["${k1}.${k2}.${k3}"].id
+            parent_id = oci_identity_compartment.level_3[k3].id
             defined_tags = v4.defined_tags
             freeform_tags = v4.freeform_tags
           }
@@ -60,15 +49,15 @@ locals {
   ])
 
   level_5 = flatten([
-    for k1,v1 in var.compartments : [
-      for k2, v2 in v1.children : [
-        for k3, v3 in v2.children : [
+    for v1 in var.compartments : [
+      for v2 in v1.children : [
+        for v3 in v2.children : [
           for k4, v4 in v3.children : [
             for k5, v5 in v4.children : {
-              key  = "${k1}.${k2}.${k3}.${k4}.${k5}"
+              key  = k5
               name = v5.name
               description = v5.description
-              parent_id = oci_identity_compartment.level_4["${k1}.${k2}.${k3}.${k4}"].id
+              parent_id = oci_identity_compartment.level_4[k4].id
               defined_tags = v5.defined_tags
               freeform_tags = v5.freeform_tags
             }  
@@ -79,16 +68,16 @@ locals {
   ])
 
   level_6 = flatten([
-    for k1,v1 in var.compartments : [
-      for k2, v2 in v1.children : [
-        for k3, v3 in v2.children : [
-          for k4, v4 in v3.children : [
+    for v1 in var.compartments : [
+      for v2 in v1.children : [
+        for v3 in v2.children : [
+          for v4 in v3.children : [
             for k5, v5 in v4.children : [
               for k6, v6 in v5.children : {
-                key  = "${k1}.${k2}.${k3}.${k4}.${k5}.${k6}"
+                key  = k6
                 name = v6.name
                 description = v6.description
-                parent_id = oci_identity_compartment.level_5["${k1}.${k2}.${k3}.${k4}.${k5}"].id
+                parent_id = oci_identity_compartment.level_5[k5].id
                 defined_tags = v6.defined_tags
                 freeform_tags = v6.freeform_tags
               }  
@@ -101,11 +90,7 @@ locals {
 }
 
 resource "oci_identity_compartment" "these" {
-  for_each = {for c in local.level_1 : c.key => {name: c.name, 
-                                                 description: c.description, 
-                                                 parent_id: c.parent_id, 
-                                                 defined_tags: c.defined_tags, 
-                                                 freeform_tags: c.freeform_tags}}
+  for_each = var.compartments
     compartment_id = each.value.parent_id
     name           = each.value.name
     description    = each.value.description
@@ -182,4 +167,4 @@ resource "oci_identity_compartment" "level_6" {
     enable_delete  = var.enable_compartments_delete
     defined_tags   = each.value.defined_tags
     freeform_tags  = each.value.freeform_tags
-}
+} 
