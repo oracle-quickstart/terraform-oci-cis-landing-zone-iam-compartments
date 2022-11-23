@@ -5,7 +5,7 @@
 #-- Arbitrary compartments topology
 #-------------------------------------------------------------
 variable "compartments" {
-  description = "The compartments structure, given as a map of objects nested up to 6 levels."
+  description = "The compartments topology, given as a map of objects nested up to six levels."
   type = map(object({
     name          = string
     description   = string
