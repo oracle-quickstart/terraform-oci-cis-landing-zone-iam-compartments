@@ -1,8 +1,8 @@
-# OCI Compartments Module Usage Example - CIS Landing Zone
+# OCI Compartments Module Usage Example - CIS Landing Zone Quick Start
 
 ## Introduction
 
-This example shows how to deploy CIS Landing Zone Quick Start compartments in Oracle Cloud Infrastructure.
+This example shows how to deploy [CIS Landing Zone Quick Start](https://github.com/oracle-quickstart/oci-cis-landingzone-quickstart) compartments in Oracle Cloud Infrastructure.
 
 It creates the compartment topology as shown in the picture below:
 
@@ -13,7 +13,7 @@ The same structure as shown in Compartments service console:
 ![Compartments](./images/compartments.PNG)
 
 ## Using this example
-* Prepare one variable file named `terraform.tfvars` with the required IAM information. The contents of `terraform.tfvars` should look something like the following (or copy and re-use the contents of `terraform.tfvars.template`:
+1. Prepare one variable file named *terraform.tfvars* with the required information for authenticating to OCI. The contents of *terraform.tfvars* should look something like the following (or copy and re-use the contents of *terraform.tfvars.template*):
 
 ```
 ### TENANCY DETAILS
@@ -37,7 +37,7 @@ private_key_password=""
 home_region="<your tenancy home region>"
 ```
 
-Check the provided `input.auto.tfvars` file. It has a single map variable named *compartments*. 
+2. Check the provided *input.auto.tfvars* file. It has a single map variable named *compartments*. 
 
 **Caution**: Within the map, each object is identified by a key (in uppercase), like *TOP-CMP*, *NETWORK-CMP*, *SECURITY-CMP*, etc. These can actually be any strings, but once defined they MUST NOT be changed, or Terraform will try to recreate the compartments upon *terraform apply*.
 
@@ -146,7 +146,7 @@ compartments = {
 }  
 ```
 
-Check the provided main.tf file. It calls the underlying tags module for resource management. 
+3. Check the provided *main.tf* file. It calls the underlying tags module for resource management. 
 
 *enable_compartments_delete = true* assignment makes OCI physically deleting all managed compartments upon *terraform destroy*.
 
@@ -160,7 +160,7 @@ module "cislz_compartments" {
 }
 ```
 
-Then execute the example using the usual Terraform workflow:
+4. Then execute the example using the usual Terraform workflow:
 
 ```
 $ terraform init
