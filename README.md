@@ -8,7 +8,7 @@ Check [module specification](./SPEC.md) for a full description of module require
 
 A fundamental principle in using a single map of objects is the ability to quickly visualize the actual compartment structure by simply looking at the variable definition. Within the map, each compartment is an object that has a *children* attribute that defines its sub-compartments. The map supports up to six levels of nesting, which is the maximum supported by OCI. The top-most compartment objects have a *parent_id* attribute used to identify the compartment's parent (in other words, where that particular tree descends from.)
 
-Check the examples folder for various different compartment topologies. Specifically, [cis-landing-zone-quickstart](./examples/cis-landing-zone-quickstart/README.md) for the compartments deployed by [CIS OCI Landing Zone Quickstart](https://github.com/oracle-quickstart/oci-cis-landingzone-quickstart).
+Check the examples folder for various different compartment topologies. Specifically, [cis-landing-zone-quickstart](./examples/cis-landing-zone-quickstart/README.md) for the compartments deployed by [CIS OCI Landing Zone Quick Start](https://github.com/oracle-quickstart/oci-cis-landingzone-quickstart).
 
 ## Contributing
 See [CONTRIBUTING.md](./CONTRIBUTING.md).
