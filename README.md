@@ -2,7 +2,7 @@
 
 ![Landing Zone logo](./images/landing_zone_300.png)
 
-This module manages arbitrary IAM (Identity & Access Management) compartment topologies in OCI (Oracle Cloud Infrastructure) based on single map of objects that can be nested up to six levels. Appropriate compartments usage is a key consideration for OCI tenancy design and it is recommendation of CIS (Center for Internet Security) OCI Foundations Benchmark. 
+This module manages arbitrary IAM (Identity & Access Management) compartment topologies in OCI (Oracle Cloud Infrastructure) based on a single map of objects that can be nested up to six levels. Appropriate compartments usage is a key consideration for OCI tenancy design and it is a recommendation of CIS (Center for Internet Security) OCI Foundations Benchmark. 
 
 Check [module specification](./SPEC.md) for a full description of module requirements, supported variables, managed resources and outputs.
 
