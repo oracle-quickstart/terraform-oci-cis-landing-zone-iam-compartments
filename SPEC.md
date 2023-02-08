@@ -34,9 +34,4 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_level_1_compartments"></a> [level\_1\_compartments](#output\_level\_1\_compartments) | The level 1 compartments. |
-| <a name="output_level_2_compartments"></a> [level\_2\_compartments](#output\_level\_2\_compartments) | The level 2 compartments, children of level 1 compartments. |
-| <a name="output_level_3_compartments"></a> [level\_3\_compartments](#output\_level\_3\_compartments) | The level 3 compartments, children of level 2 compartments. |
-| <a name="output_level_4_compartments"></a> [level\_4\_compartments](#output\_level\_4\_compartments) | The level 4 compartments, children of level 3 compartments. |
-| <a name="output_level_5_compartments"></a> [level\_5\_compartments](#output\_level\_5\_compartments) | The level 5 compartments, children of level 4 compartments. |
-| <a name="output_level_6_compartments"></a> [level\_6\_compartments](#output\_level\_6\_compartments) | The level 6 compartments, children of level 5 compartments. |
+| <a name="output_compartments"></a> [compartments](#output\_compartments) | The compartments. |
