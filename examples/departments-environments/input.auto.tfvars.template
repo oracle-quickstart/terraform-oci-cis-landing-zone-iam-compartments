@@ -13,7 +13,7 @@ compartments = {
   ORG1-SHD-CMP : { 
     name : "org1-shd-cmp", 
     description : "Network, Storage, Security Services compartment", 
-    parent_id : "ocid1.compartment.oc1..aaaaaaaa4xzo6svc5zoclp3syjwluimamqsgulurpvsdankhamussi675zla"
+    parent_id : "<ENTER THE OCID OF THE PARENT COMPARTMENT>", 
     defined_tags : null, 
     freeform_tags : {"cislz":"org1",
                      "cislz-cmp-type":"network,security",

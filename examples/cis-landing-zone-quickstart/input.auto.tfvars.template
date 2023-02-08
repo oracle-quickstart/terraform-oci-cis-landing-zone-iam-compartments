@@ -13,7 +13,7 @@ compartments = {
   TOP-CMP : { 
     name : "vision-top-cmp", 
     description : "CIS Landing Zone enclosing compartment", 
-    parent_id : "ocid1.compartment.oc1..aaaaaaaa4xzo6svc5zoclp3syjwluimamqsgulurpvsdankhamussi675zla",
+    parent_id : "<ENTER THE OCID OF THE PARENT COMPARTMENT>",
     defined_tags : null, 
     freeform_tags : {
       "cislz":"vision",

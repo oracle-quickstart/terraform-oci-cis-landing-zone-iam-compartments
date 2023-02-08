@@ -7,3 +7,4 @@
 *.pem
 **/terraform_*.tfvars*
 **/terraform.tfvars
+**/input.auto.tfvars

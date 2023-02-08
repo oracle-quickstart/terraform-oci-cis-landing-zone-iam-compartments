@@ -14,7 +14,7 @@ compartments = {
   SHARED-CMP : { 
     name : "workload-example-shared-cmp", 
     description : "Network and Security services shared compartment", 
-    parent_id : "ocid1.compartment.oc1..aaaaaaaa4xzo6svc5zoclp3syjwluimamqsgulurpvsdankhamussi675zla"
+    parent_id : "<ENTER THE OCID OF THE PARENT COMPARTMENT>", 
     defined_tags : null, 
     freeform_tags : {"cislz":"workload-example",
                      "cislz-cmp-type":"network,security",
