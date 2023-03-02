@@ -8,3 +8,5 @@
 **/terraform_*.tfvars*
 **/terraform.tfvars
 **/input.auto.tfvars
+examples/departments-environments
+examples/departments-environments-workloads

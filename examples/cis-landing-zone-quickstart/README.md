@@ -1,14 +1,13 @@
 # OCI Compartments Module Usage Example - CIS Landing Zone Quick Start
 
 ## Introduction
-
 This example shows how to deploy [CIS Landing Zone Quick Start](https://github.com/oracle-quickstart/oci-cis-landingzone-quickstart) compartments in Oracle Cloud Infrastructure.
 
 It creates the compartment topology as shown in the picture below:
 
 ![Compartments Topology](./images/compartments_tree.PNG)
 
-The same structure as shown in Compartments service console:
+The same structure is shown as it appears in OCI Console:
 
 ![Compartments](./images/compartments.PNG)
 
@@ -37,21 +36,20 @@ private_key_password=""
 home_region="<your tenancy home region>"
 ```
 
-2. Check the provided *input.auto.tfvars* file. It has a single map variable named *compartments*. 
+2. Rename the provided *input.auto.tfvars.template* file to *input.auto.tfvars* and provide a valid OCID to *parent_id* attribute in *TOP-CMP* object. It tells the module the existing compartment where *TOP-CMP* is attached to.
 
-**Caution**: Within the map, each object is identified by a key (in uppercase), like *TOP-CMP*, *NETWORK-CMP*, *SECURITY-CMP*, etc. These can actually be any strings, but once defined they MUST NOT be changed, or Terraform will try to recreate the compartments upon *terraform apply*.
+It has a single map variable named *compartments*. 
 
-Also notice *parent_id : "\<ENTER THE OCID OF THE PARENT COMPARTMENT\>"* in *TOP-CMP* object. It tells the module the existing compartment where *TOP-CMP* is attached to. 
+**Caution**: The module defines a single map of objects named *compartments*. Within the map, each object is identified by a key (in uppercase), like *TOP-CMP*, *NETWORK-CMP*, *SECURITY-CMP*, etc. These can actually be any strings, but once defined they MUST NOT be changed, or Terraform will try to recreate the compartments upon *terraform apply*.
 
-Last, but not least, notice the *freeform_tags* applied to each compartment. They are not required, but if defined they are leveraged by [OCI CIS Landing Zone Policy Module](https://github.com/andrecorreaneto/terraform-oci-cis-landing-zone-policies) for deploying template (pre-configured) policies.
+Last, but not least, notice the *freeform_tags* applied to each compartment. They are not required, but if defined they are leveraged by [OCI CIS Landing Zone IAM Policies Module](https://github.com/oracle-quickstart/terraform-oci-cis-landing-zone-iam-policies) for deploying template (pre-configured) policies.
 
 ```
 compartments = { 
   TOP-CMP : { 
     name : "vision-top-cmp", 
     description : "CIS Landing Zone enclosing compartment", 
-    #parent_id : "<ENTER THE OCID OF THE PARENT COMPARTMENT>",
-    parent_id : "ocid1.compartment.oc1..aaaaaaaa4xzo6svc5zoclp3syjwluimamqsgulurpvsdankhamussi675zla" 
+    parent_id : "<ENTER THE OCID OF THE PARENT COMPARTMENT>",
     defined_tags : null, 
     freeform_tags : {
       "cislz":"vision",
@@ -160,7 +158,7 @@ module "cislz_compartments" {
 }
 ```
 
-4. Then execute the example using the usual Terraform workflow:
+4. Execute the example using the usual Terraform workflow:
 
 ```
 $ terraform init

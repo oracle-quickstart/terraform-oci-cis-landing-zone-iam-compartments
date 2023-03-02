@@ -6,7 +6,7 @@
 
 To post feedback, submit feature ideas or report bugs, please use the Issues section in this repository.
 
-Pull requests can be made under [The Oracle Contributor Agreement](https://www.oracle.com/technetwork/community/oca-486395.html) (OCA).
+Pull requests can be made under [The Oracle Contributor Agreement](https://oca.opensource.oracle.com/) (OCA).
 
 For pull requests to be accepted, the bottom of your commit message must have the following line using your name and e-mail address as it appears in the OCA Signatories list.
 
