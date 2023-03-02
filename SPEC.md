@@ -1,6 +1,8 @@
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | < 1.3.0 |
 
 ## Providers
 
@@ -27,11 +29,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_compartments"></a> [compartments](#input\_compartments) | The compartments topology, given as a map of objects nested up to six levels. | <pre>map(object({<br>    name          = string<br>    description   = string<br>    parent_id     = string<br>    defined_tags  = map(string)<br>    freeform_tags = map(string)<br>    children    = map(object({<br>      name          = string<br>      description   = string<br>      defined_tags  = map(string)<br>      freeform_tags = map(string)<br>      children      = map(object({<br>        name          = string<br>        description   = string<br>        defined_tags  = map(string)<br>        freeform_tags = map(string)<br>        children      = map(object({<br>          name          = string<br>          description   = string<br>          defined_tags  = map(string)<br>          freeform_tags = map(string)<br>          children      = map(object({<br>            name          = string<br>            description   = string<br>            defined_tags  = map(string)<br>            freeform_tags = map(string)<br>            children      = map(object({<br>              name          = string<br>              description   = string<br>              defined_tags  = map(string)<br>              freeform_tags = map(string)<br>            }))  <br>          }))<br>        }))<br>      }))<br>    }))  <br>  }))</pre> | `{}` | no |
+| <a name="input_compartments"></a> [compartments](#input\_compartments) | The compartments topology, given as a map of objects nested up to six levels. | <pre>map(object({<br>    name          = string<br>    description   = string<br>    parent_id     = string<br>    defined_tags  = optional(map(string))<br>    freeform_tags = optional(map(string))<br>    children      = optional(map(object({<br>      name          = string<br>      description   = string<br>      defined_tags  = optional(map(string))<br>      freeform_tags = optional(map(string))<br>      children      = optional(map(object({<br>        name          = string<br>        description   = string<br>        defined_tags  = optional(map(string))<br>        freeform_tags = optional(map(string))<br>        children      = optional(map(object({<br>          name          = string<br>          description   = string<br>          defined_tags  = optional(map(string))<br>          freeform_tags = optional(map(string))<br>          children      = optional(map(object({<br>            name          = string<br>            description   = string<br>            defined_tags  = optional(map(string))<br>            freeform_tags = optional(map(string))<br>            children      = optional(map(object({<br>              name          = string<br>              description   = string<br>              defined_tags  = optional(map(string))<br>              freeform_tags = optional(map(string))<br>            })))  <br>          })))<br>        })))<br>      })))<br>    })))  <br>  }))</pre> | `{}` | no |
 | <a name="input_enable_compartments_delete"></a> [enable\_compartments\_delete](#input\_enable\_compartments\_delete) | Whether compartments are physically deleted upon destroy. | `bool` | `true` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_compartments"></a> [compartments](#output\_compartments) | The compartments. |
+| <a name="output_compartments"></a> [compartments](#output\_compartments) | The compartments in a single flat map. |

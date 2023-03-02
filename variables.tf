@@ -10,38 +10,38 @@ variable "compartments" {
     name          = string
     description   = string
     parent_id     = string
-    defined_tags  = map(string)
-    freeform_tags = map(string)
-    children    = map(object({
+    defined_tags  = optional(map(string))
+    freeform_tags = optional(map(string))
+    children      = optional(map(object({
       name          = string
       description   = string
-      defined_tags  = map(string)
-      freeform_tags = map(string)
-      children      = map(object({
+      defined_tags  = optional(map(string))
+      freeform_tags = optional(map(string))
+      children      = optional(map(object({
         name          = string
         description   = string
-        defined_tags  = map(string)
-        freeform_tags = map(string)
-        children      = map(object({
+        defined_tags  = optional(map(string))
+        freeform_tags = optional(map(string))
+        children      = optional(map(object({
           name          = string
           description   = string
-          defined_tags  = map(string)
-          freeform_tags = map(string)
-          children      = map(object({
+          defined_tags  = optional(map(string))
+          freeform_tags = optional(map(string))
+          children      = optional(map(object({
             name          = string
             description   = string
-            defined_tags  = map(string)
-            freeform_tags = map(string)
-            children      = map(object({
+            defined_tags  = optional(map(string))
+            freeform_tags = optional(map(string))
+            children      = optional(map(object({
               name          = string
               description   = string
-              defined_tags  = map(string)
-              freeform_tags = map(string)
-            }))  
-          }))
-        }))
-      }))
-    }))  
+              defined_tags  = optional(map(string))
+              freeform_tags = optional(map(string))
+            })))  
+          })))
+        })))
+      })))
+    })))  
   }))
   default = {}
 }

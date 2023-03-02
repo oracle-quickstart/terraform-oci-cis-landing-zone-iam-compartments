@@ -12,8 +12,8 @@ locals {
         parent_id = oci_identity_compartment.these[k1].id
         defined_tags = v2.defined_tags
         freeform_tags = v2.freeform_tags
-      }
-    ]
+      } 
+    ] if v1.children != null
   ])
 
   level_3 = flatten([
@@ -26,9 +26,9 @@ locals {
           parent_id = oci_identity_compartment.level_2[k2].id
           defined_tags = v3.defined_tags
           freeform_tags = v3.freeform_tags
-        }
-      ]
-    ]
+        } 
+      ] if v2.children != null
+    ] if v1.children != null
   ])
 
   level_4 = flatten([
@@ -42,10 +42,10 @@ locals {
             parent_id = oci_identity_compartment.level_3[k3].id
             defined_tags = v4.defined_tags
             freeform_tags = v4.freeform_tags
-          }
-        ]  
-      ]
-    ]
+          } 
+        ] if v3.children != null  
+      ] if v2.children != null
+    ] if v1.children != null
   ])
 
   level_5 = flatten([
@@ -61,10 +61,10 @@ locals {
               defined_tags = v5.defined_tags
               freeform_tags = v5.freeform_tags
             }  
-          ]
-        ]  
-      ]
-    ]
+          ] if v4.children != null
+        ] if v3.children != null 
+      ] if v2.children != null
+    ] if v1.children != null
   ])
 
   level_6 = flatten([
@@ -80,12 +80,12 @@ locals {
                 parent_id = oci_identity_compartment.level_5[k5].id
                 defined_tags = v6.defined_tags
                 freeform_tags = v6.freeform_tags
-              }  
-            ]  
-          ]
-        ]  
-      ]
-    ]
+              } 
+            ] if v5.children != null 
+          ] if v4.children != null 
+        ] if v3.children != null  
+      ] if v2.children != null
+    ] if v1.children != null
   ])
 }
 

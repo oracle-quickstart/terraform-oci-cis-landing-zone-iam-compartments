@@ -12,43 +12,43 @@ variable "home_region" {}
 #-- Arbitrary compartments topology
 #-------------------------------------------------------------
 variable "compartments" {
-  description = "The compartments structure, given as a map of objects nested up to 6 levels."
+  description = "The compartments topology, given as a map of objects nested up to six levels."
   type = map(object({
     name          = string
     description   = string
     parent_id     = string
-    defined_tags  = map(string)
-    freeform_tags = map(string)
-    children    = map(object({
+    defined_tags  = optional(map(string))
+    freeform_tags = optional(map(string))
+    children      = optional(map(object({
       name          = string
       description   = string
-      defined_tags  = map(string)
-      freeform_tags = map(string)
-      children      = map(object({
+      defined_tags  = optional(map(string))
+      freeform_tags = optional(map(string))
+      children      = optional(map(object({
         name          = string
         description   = string
-        defined_tags  = map(string)
-        freeform_tags = map(string)
-        children      = map(object({
+        defined_tags  = optional(map(string))
+        freeform_tags = optional(map(string))
+        children      = optional(map(object({
           name          = string
           description   = string
-          defined_tags  = map(string)
-          freeform_tags = map(string)
-          children      = map(object({
+          defined_tags  = optional(map(string))
+          freeform_tags = optional(map(string))
+          children      = optional(map(object({
             name          = string
             description   = string
-            defined_tags  = map(string)
-            freeform_tags = map(string)
-            children      = map(object({
+            defined_tags  = optional(map(string))
+            freeform_tags = optional(map(string))
+            children      = optional(map(object({
               name          = string
               description   = string
-              defined_tags  = map(string)
-              freeform_tags = map(string)
-            }))  
-          }))
-        }))
-      }))
-    }))  
+              defined_tags  = optional(map(string))
+              freeform_tags = optional(map(string))
+            })))  
+          })))
+        })))
+      })))
+    })))  
   }))
   default = {}
 }

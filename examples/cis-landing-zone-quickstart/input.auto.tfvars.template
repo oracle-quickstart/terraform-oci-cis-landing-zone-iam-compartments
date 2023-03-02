@@ -14,7 +14,7 @@ compartments = {
     name : "vision-top-cmp", 
     description : "CIS Landing Zone enclosing compartment", 
     parent_id : "<ENTER THE OCID OF THE PARENT COMPARTMENT>",
-    defined_tags : null, 
+    #defined_tags : null, 
     freeform_tags : {
       "cislz":"vision",
       "cislz-cmp-type":"enclosing",
@@ -26,7 +26,6 @@ compartments = {
       NETWORK-CMP : { 
         name : "vision-network-cmp", 
         description : "CIS Landing Zone Network compartment", 
-        defined_tags : null, 
         freeform_tags : {
           "cislz":"vision",
           "cislz-cmp-type":"network",
@@ -37,12 +36,10 @@ compartments = {
           "cislz-consumer-groups-storage":"vision-storage-admin-group",
           "cislz-consumer-groups-exainfra":"vision-exainfra-admin-group"
         }, 
-        children : {}
       },
       SECURITY-CMP : { 
         name : "vision-security-cmp", 
         description : "CIS Landing Zone Security compartment", 
-        defined_tags : null, 
         freeform_tags : {
           "cislz":"vision",
           "cislz-cmp-type":"security",
@@ -53,12 +50,10 @@ compartments = {
           "cislz-consumer-groups-storage":"vision-storage-admin-group",
           "cislz-consumer-groups-exainfra":"vision-exainfra-admin-group"
         },
-        children : {}
       },
       APP-CMP : { 
         name : "vision-application-cmp", 
         description : "CIS Landing Zone Application compartment", 
-        defined_tags : null, 
         freeform_tags : {
           "cislz":"vision",
           "cislz-cmp-type":"application",
@@ -69,12 +64,10 @@ compartments = {
           "cislz-consumer-groups-storage":"vision-storage-admin-group",
           "cislz-consumer-groups-exainfra":"vision-exainfra-admin-group"
         },
-        children : {}
       },
       DB-CMP : { 
         name : "vision-database-cmp", 
         description : "CIS Landing Zone Database compartment", 
-        defined_tags : null, 
         freeform_tags : {
           "cislz":"vision",
           "cislz-cmp-type":"database",
@@ -85,12 +78,10 @@ compartments = {
           "cislz-consumer-groups-storage":"vision-storage-admin-group",
           "cislz-consumer-groups-exainfra":"vision-exainfra-admin-group"
         },
-        children : {}
       },
       EXACS-CMP : { 
         name : "vision-exainfra-cmp", 
         description : "CIS Landing Zone Exadata Cloud Service compartment",  
-        defined_tags : null, 
         freeform_tags : {
           "cislz":"vision",
           "cislz-cmp-type":"exainfra",
@@ -101,7 +92,6 @@ compartments = {
           "cislz-consumer-groups-storage":"vision-storage-admin-group",
           "cislz-consumer-groups-exainfra":"vision-exainfra-admin-group"
         },
-        children : {}
       } 
     }
   }
